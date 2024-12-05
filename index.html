@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za Zorico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(questionId, correctAnswer) {
+            const selected = document.querySelector(`input[name="question${questionId}"]:checked`);
+            const feedback = document.getElementById(`feedback${questionId}`);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+
+        function checkMatching() {
+            const answers = {
+                match1: "d",
+                match2: "c",
+                match3: "a",
+                match4: "b"
+            };
+            let correct = 0;
+            for (let id in answers) {
+                const select = document.getElementById(id);
+                if (select.value === answers[id]) {
+                    correct++;
+                }
+            }
+            const feedback = document.getElementById("feedbackMatching");
+            if (correct === 4) {
+                feedback.textContent = "Vse pravilno! Odlično!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `Imate ${correct}/4 pravilnih odgovorov. Poskusite znova.`;
+                feedback.style.color = "red";
+            }
+        }
+
+        function checkTranslations() {
+            const answers = {
+                translate1: "Kafa dolazi odmah.",
+                translate2: "Evo vaše hrane.",
+                translate3: "Mogu li vam doneti još nešto?"
+            };
+            let correct = 0;
+            for (let id in answers) {
+                const input = document.getElementById(id).value.trim();
+                if (input.toLowerCase() === answers[id].toLowerCase()) {
+                    correct++;
+                }
+            }
+            const feedback = document.getElementById("feedbackTranslations");
+            if (correct === 3) {
+                feedback.textContent = "Vse pravilno! Odlično!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `Imate ${correct}/3 pravilnih prevodov. Poskusite znova.`;
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za Zorico</h1>
+
+    <!-- Section 1: Uvodna naloga -->
+    <div class="section">
+        <h2>1. Uvodna naloga: Pozdravljanje in uvod</h2>
+        <div class="question">
+            Gospod Müller vstopi v restavracijo ob 12. uri. Kaj rečete?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="question1" value="a"> Guten Morgen</label>
+            <label><input type="radio" name="question1" value="b"> Guten Tag</label>
+            <label><input type="radio" name="question1" value="c"> Guten Abend</label>
+        </div>
+        <button onclick="checkAnswer(1, 'b')">Preveri odgovor</button>
+        <p id="feedback1" class="feedback"></p>
+    </div>
+
+    <div class="section">
+        <div class="question">
+            Gost pride na večerjo ob 20. uri. Kaj rečete?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="question2" value="a"> Guten Morgen</label>
+            <label><input type="radio" name="question2" value="b"> Guten Abend</label>
+            <label><input type="radio" name="question2" value="c"> Gute Nacht</label>
+        </div>
+        <button onclick="checkAnswer(2, 'b')">Preveri odgovor</button>
+        <p id="feedback2" class="feedback"></p>
+    </div>
+
+    <!-- Continue with all the other sections similarly -->
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(questionId, correctAnswer) {
+            const selected = document.querySelector(`input[name="question${questionId}"]:checked`);
+            const feedback = document.getElementById(`feedback${questionId}`);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+
+        function checkTranslations() {
+            const answers = {
+                translate1: "Kafa dolazi odmah.",
+                translate2: "Evo vaše hrane.",
+                translate3: "Mogu li vam doneti još nešto?"
+            };
+            let correct = 0;
+            for (let id in answers) {
+                const input = document.getElementById(id).value.trim();
+                if (input.toLowerCase() === answers[id].toLowerCase()) {
+                    correct++;
+                }
+            }
+            const feedback = document.getElementById("feedbackTranslations");
+            if (correct === 3) {
+                feedback.textContent = "Vse pravilno! Odlično!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `Imate ${correct}/3 pravilnih prevodov. Poskusite znova.`;
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+   <!-- Section 3: Strežba hrane in pijače -->
+<div class="section">
+    <h2>3. Strežba hrane in pijače</h2>
+    <div class="question">
+        Gost pravi: "Der Kaffee kommt sofort." Kako to prevedete v srbščino?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="question3_1" value="a"> Kafa dolazi odmah.</label>
+        <label><input type="radio" name="question3_1" value="b"> Evo vaše hrane.</label>
+        <label><input type="radio" name="question3_1" value="c"> Mogu li vam doneti šećer?</label>
+    </div>
+    <button onclick="checkAnswer('3_1', 'a')">Preveri odgovor</button>
+    <p id="feedback3_1" class="feedback"></p>
+
+    <div class="question">
+        Gost pravi: "Hier ist Ihr Essen." Kako to prevedete v srbščino?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="question3_2" value="a"> Kafa dolazi odmah.</label>
+        <label><input type="radio" name="question3_2" value="b"> Evo vaše hrane.</label>
+        <label><input type="radio" name="question3_2" value="c"> Mogu li vam doneti šećer?</label>
+    </div>
+    <button onclick="checkAnswer('3_2', 'b')">Preveri odgovor</button>
+    <p id="feedback3_2" class="feedback"></p>
+    <div class="question">
+        Gost pravi: "Kann ich Ihnen noch etwas bringen?" Kako to prevedete v srbščino?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="question3_3" value="a"> Kafa dolazi odmah.</label>
+        <label><input type="radio" name="question3_3" value="b"> Evo vaše hrane.</label>
+        <label><input type="radio" name="question3_3" value="c"> Mogu li vam doneti još nešto?</label>
+    </div>
+    <button onclick="checkAnswer('3_3', 'c')">Preveri odgovor</button>
+    <p id="feedback3_3" class="feedback"></p>
+</div>
+    <!-- Section 4: Zaključevanje storitve -->
+    <div class="section">
+        <h2>4. Zaključevanje storitve</h2>
+        <div class="question">
+            Gost vpraša: "Wo ist die Toilette?" Kako odgovorite?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="question4" value="a"> Die Toilette ist dort drüben.</label>
+            <label><input type="radio" name="question4" value="b"> Ich bin Kellner.</label>
+            <label><input type="radio" name="question4" value="c"> Ja, bitte.</label>
+        </div>
+        <button onclick="checkAnswer(4, 'a')">Preveri odgovor</button>
+        <p id="feedback4" class="feedback"></p>
+
+        <div class="question">
+            Gost reče: "Die Rechnung, bitte." Kaj naredite?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="question5" value="a"> Ignorirate ga.</label>
+            <label><input type="radio" name="question5" value="b"> Prinesete račun in rečete: "Hier ist die Rechnung."</label>
+            <label><input type="radio" name="question5" value="c"> Vprašate: "Was möchten Sie essen?"</label>
+        </div>
+        <button onclick="checkAnswer(5, 'b')">Preveri odgovor</button>
+        <p id="feedback5" class="feedback"></p>
+    </div>
+
+    <!-- Section 5: Slovarček nemško-srbski za gostinstvo -->
+    <div class="section">
+        <h2>5. Slovarček nemško-srbski za gostinstvo</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški izraz</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Guten Tag</td><td>Dobar dan</td></tr>
+                <tr><td>Guten Abend</td><td>Dobro veče</td></tr>
+                <tr><td>Bitte</td><td>Molim</td></tr>
+                <tr><td>Danke</td><td>Hvala</td></tr>
+                <tr><td>Speisekarte</td><td>Meni</td></tr>
+                <tr><td>Getränk</td><td>Piće</td></tr>
+                <tr><td>Essen</td><td>Hrana</td></tr>
+                <tr><td>Rechnung</td><td>Račun</td></tr>
+                <tr><td>Tisch</td><td>Sto</td></tr>
+                <tr><td>Toilette</td><td>Toalet</td></tr>
+                <tr><td>Kellner</td><td>Konobar</td></tr>
+                <tr><td>Trinkgeld</td><td>Bakšiš</td></tr>
+                <tr><td>Bier</td><td>Pivo</td></tr>
+                <tr><td>Wasser</td><td>Voda</td></tr>
+                <tr><td>Wein</td><td>Vino</td></tr>
+                <tr><td>Gabel</td><td>Viljuška</td></tr>
+                <tr><td>Messer</td><td>Nož</td></tr>
+                <tr><td>Löffel</td><td>Kašika</td></tr>
+                <tr><td>Teller</td><td>Tanjir</td></tr>
+                <tr><td>Glas</td><td>Čaša</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<!-- Section 6: Domača naloga -->
+<div class="section">
+    <h2>6. Domača naloga: Prevedite stavke iz srbščine v nemščino</h2>
+    <div class="question">
+        Kako prevedete stavek: "Izvolite vaša kafa."?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="homework1" value="a"> Haben Sie eine Reservierung?</label>
+        <label><input type="radio" name="homework1" value="b"> Hier ist Ihr Kaffee.</label>
+        <label><input type="radio" name="homework1" value="c"> Danke und einen schönen Tag noch!</label>
+    </div>
+    <button onclick="checkSingleAnswer('homework1', 'b', 'feedbackhomework1')">Preveri odgovor</button>
+    <p id="feedbackhomework1" class="feedback"></p>
+
+    <div class="question">
+        Kako prevedete stavek: "Imate li rezervaciju?"?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="homework2" value="a"> Haben Sie eine Reservierung?</label>
+        <label><input type="radio" name="homework2" value="b"> Hier ist Ihr Kaffee.</label>
+        <label><input type="radio" name="homework2" value="c"> Danke und einen schönen Tag noch!</label>
+    </div>
+    <button onclick="checkSingleAnswer('homework2', 'a', 'feedbackhomework2')">Preveri odgovor</button>
+    <p id="feedbackhomework2" class="feedback"></p>
+
+    <div class="question">
+        Kako prevedete stavek: "Hvala i prijatno!"?
+    </div>
+    <div class="options">
+        <label><input type="radio" name="homework3" value="a"> Haben Sie eine Reservierung?</label>
+        <label><input type="radio" name="homework3" value="b"> Hier ist Ihr Kaffee.</label>
+        <label><input type="radio" name="homework3" value="c"> Danke und einen schönen Tag noch!</label>
+    </div>
+    <button onclick="checkSingleAnswer('homework3', 'c', 'feedbackhomework3')">Preveri odgovor</button>
+    <p id="feedbackhomework3" class="feedback"></p>
+</div>
+<script>
+    function checkSingleAnswer(groupName, correctAnswer, feedbackId) {
+        const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+        const feedback = document.getElementById(feedbackId);
+        if (selected) {
+            if (selected.value === correctAnswer) {
+                feedback.textContent = "Pravilno! Odlično!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Napačno. Poskusite znova.";
+                feedback.style.color = "red";
+            }
+        } else {
+            feedback.textContent = "Izberite odgovor.";
+            feedback.style.color = "orange";
+        }
+    }
+</script>
+<!-- Section 7: Pozdravljanje in uvod -->
+<div class="section">
+    <h2>7. Pozdravljanje in uvod: Razvrstite pozdrave glede na del dneva</h2>
+    <div class="question">
+        Spodnje pozdrave razvrstite k ustreznemu delu dneva:
+    </div>
+    <div>
+        <label>Pozdravi: Guten Morgen, Guten Abend, Guten Tag, Gute Nacht</label>
+        <ul>
+            <li>Jutro (a): <select id="greeting1">
+                <option value="">Izberite</option>
+                <option value="a">Guten Morgen</option>
+                <option value="b">Guten Tag</option>
+                <option value="c">Guten Abend</option>
+                <option value="d">Gute Nacht</option>
+            </select></li>
+            <li>Popoldne (b): <select id="greeting2">
+                <option value="">Izberite</option>
+                <option value="a">Guten Morgen</option>
+                <option value="b">Guten Tag</option>
+                <option value="c">Guten Abend</option>
+                <option value="d">Gute Nacht</option>
+            </select></li>
+            <li>Večer (c): <select id="greeting3">
+                <option value="">Izberite</option>
+                <option value="a">Guten Morgen</option>
+                <option value="b">Guten Tag</option>
+                <option value="c">Guten Abend</option>
+                <option value="d">Gute Nacht</option>
+            </select></li>
+            <li>Ponoči (d): <select id="greeting4">
+                <option value="">Izberite</option>
+                <option value="a">Guten Morgen</option>
+                <option value="b">Guten Tag</option>
+                <option value="c">Guten Abend</option>
+                <option value="d">Gute Nacht</option>
+            </select></li>
+        </ul>
+    </div>
+    <button onclick="checkGreetings()">Preveri odgovore</button>
+    <p id="feedbackGreetings" class="feedback"></p>
+</div>
+<script>
+    function checkGreetings() {
+        const answers = {
+            greeting1: "a",
+            greeting2: "b",
+            greeting3: "c",
+            greeting4: "d"
+        };
+        let correct = 0;
+        for (let id in answers) {
+            const select = document.getElementById(id);
+            if (select.value === answers[id]) {
+                correct++;
+            }
+        }
+        const feedback = document.getElementById("feedbackGreetings");
+        if (correct === 4) {
+            feedback.textContent = "Vse pravilno! Odlično!";
+            feedback.style.color = "green";
+        } else {
+            feedback.textContent = `Imate ${correct}/4 pravilnih odgovorov. Poskusite znova.`;
+            feedback.style.color = "red";
+        }
+    }
+</script>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(groupName, correctAnswer, feedbackId) {
+            const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+            const feedback = document.getElementById(feedbackId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+        function checkGreetings() {
+            const answers = {
+                greeting1: "a",
+                greeting2: "b",
+                greeting3: "c",
+                greeting4: "d"
+            };
+            let correct = 0;
+            for (let id in answers) {
+                const select = document.getElementById(id);
+                if (select.value === answers[id]) {
+                    correct++;
+                }
+            }
+            const feedback = document.getElementById("feedbackGreetings");
+            if (correct === 4) {
+                feedback.textContent = "Vse pravilno! Odlično!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = `Imate ${correct}/4 pravilnih odgovorov. Poskusite znova.`;
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+    <!-- Section 8: Sprejem gostov -->
+    <div class="section">
+        <h2>8. Sprejem gostov: Dopolnite manjkajoče besede</h2>
+        <div class="question">
+            Kako dokončate stavek: "___ Sie einen Tisch reserviert?" (Ste rezervirali mizo?)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="guest1" value="a"> Haben</label>
+            <label><input type="radio" name="guest1" value="b"> Sind</label>
+            <label><input type="radio" name="guest1" value="c"> Möchten</label>
+        </div>
+        <button onclick="checkAnswer('guest1', 'a', 'feedbackGuest1')">Preveri odgovor</button>
+        <p id="feedbackGuest1" class="feedback"></p>
+
+        <div class="question">
+            Kako dokončate stavek: "Herzlich willkommen, mein Name ist Zorica. Ich bin Ihre ___ für danes." 
+            (Dobrodošli, moje ime je Zorica. Danes bom vaša natakarica.)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="guest2" value="a"> Kellnerin</label>
+            <label><input type="radio" name="guest2" value="b"> Reservierung</label>
+            <label><input type="radio" name="guest2" value="c"> Bedienung</label>
+        </div>
+        <button onclick="checkAnswer('guest2', 'a', 'feedbackGuest2')">Preveri odgovor</button>
+        <p id="feedbackGuest2" class="feedback"></p>
+
+        <div class="question">
+            Kako dokončate stavek: "___ Personen sind Sie?" (Koliko oseb ste?)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="guest3" value="a"> Wie viele</label>
+            <label><input type="radio" name="guest3" value="b"> Wieviel</label>
+            <label><input type="radio" name="guest3" value="c"> Wo</label>
+        </div>
+        <button onclick="checkAnswer('guest3', 'a', 'feedbackGuest3')">Preveri odgovor</button>
+        <p id="feedbackGuest3" class="feedback"></p>
+    </div>
+
+    <!-- Section 9: Sprejem naročil -->
+    <div class="section">
+        <h2>9. Sprejem naročil: Prevedite stavke iz srbščine v nemščino</h2>
+        <div class="question">
+            Kako prevedete stavek: "Šta želite da popijete?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="order1" value="a"> Was möchten Sie trinken?</label>
+            <label><input type="radio" name="order1" value="b"> Möchten Sie etwas essen?</label>
+            <label><input type="radio" name="order1" value="c"> Möchten Sie einen Nachtisch?</label>
+        </div>
+        <button onclick="checkAnswer('order1', 'a', 'feedbackOrder1')">Preveri odgovor</button>
+        <p id="feedbackOrder1" class="feedback"></p>
+
+        <div class="question">
+            Kako prevedete stavek: "Koje jelo biste preporučili?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="order2" value="a"> Was möchten Sie trinken?</label>
+            <label><input type="radio" name="order2" value="b"> Welches Gericht würden Sie empfehlen?</label>
+            <label><input type="radio" name="order2" value="c"> Möchten Sie einen Nachtisch?</label>
+        </div>
+        <button onclick="checkAnswer('order2', 'b', 'feedbackOrder2')">Preveri odgovor</button>
+        <p id="feedbackOrder2" class="feedback"></p>
+
+        <div class="question">
+            Kako prevedete stavek: "Da li želite dezert?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="order3" value="a"> Möchten Sie etwas trinken?</label>
+            <label><input type="radio" name="order3" value="b"> Möchten Sie einen Nachtisch?</label>
+            <label><input type="radio" name="order3" value="c"> Was möchten Sie trinken?</label>
+        </div>
+        <button onclick="checkAnswer('order3', 'b', 'feedbackOrder3')">Preveri odgovor</button>
+        <p id="feedbackOrder3" class="feedback"></p>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        function checkAnswer(groupName, correctAnswer, feedbackId) {
+            const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+            const feedback = document.getElementById(feedbackId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+    <!-- Section 10: Strežba hrane in pijače -->
+    <div class="section">
+        <h2>10. Strežba hrane in pijače: Dopolnite pravilne odgovore</h2>
+        <div class="question">
+            Gost pravi: "Ich hätte gern ein Bier." Kaj rečete?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="service1" value="a"> Einen Moment, bitte.</label>
+            <label><input type="radio" name="service1" value="b"> Nein, danke.</label>
+            <label><input type="radio" name="service1" value="c"> Kaffee oder Tee?</label>
+        </div>
+        <button onclick="checkAnswer('service1', 'a', 'feedbackService1')">Preveri odgovor</button>
+        <p id="feedbackService1" class="feedback"></p>
+
+        <div class="question">
+            Gost reče: "Das Essen schmeckt sehr gut!" Kaj odgovorite?
+        </div>
+        <div class="options">
+            <label><input type="radio" name="service2" value="a"> Es tut mir leid.</label>
+            <label><input type="radio" name="service2" value="b"> Vielen Dank! Kann ich noch etwas bringen?</label>
+            <label><input type="radio" name="service2" value="c"> Ich habe keine Ahnung.</label>
+        </div>
+        <button onclick="checkAnswer('service2', 'b', 'feedbackService2')">Preveri odgovor</button>
+        <p id="feedbackService2" class="feedback"></p>
+    </div>
+
+    <!-- Section 11: Reševanje težav -->
+    <div class="section">
+        <h2>11. Reševanje težav: Kaj rečete v naslednjih situacijah?</h2>
+        <div class="question">
+            Gost pravi: "Der Tisch ist schmutzig."
+        </div>
+        <div class="options">
+            <label><input type="radio" name="problem1" value="a"> Es tut mir leid, ich werde den Tisch sofort reinigen.</label>
+            <label><input type="radio" name="problem1" value="b"> Der Tisch ist alt.</label>
+            <label><input type="radio" name="problem1" value="c"> Ich habe keine Idee.</label>
+        </div>
+        <button onclick="checkAnswer('problem1', 'a', 'feedbackProblem1')">Preveri odgovor</button>
+        <p id="feedbackProblem1" class="feedback"></p>
+
+        <div class="question">
+            Gost vpraša: "Gibt es vegetarische Gerichte?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="problem2" value="a"> Nein, wir haben kein Gemüse.</label>
+            <label><input type="radio" name="problem2" value="b"> Ja, wir haben vegetarische Gerichte. Ich bringe Ihnen die Speisekarte.</label>
+            <label><input type="radio" name="problem2" value="c"> Es tut mir leid, ich bin kein Koch.</label>
+        </div>
+        <button onclick="checkAnswer('problem2', 'b', 'feedbackProblem2')">Preveri odgovor</button>
+        <p id="feedbackProblem2" class="feedback"></p>
+
+        <div class="question">
+            Gost reče: "Die Suppe ist kalt."
+        </div>
+        <div class="options">
+            <label><input type="radio" name="problem3" value="a"> Die Suppe ist perfekt.</label>
+            <label><input type="radio" name="problem3" value="b"> Es tut mir leid. Ich bringe Ihnen eine warme Suppe.</label>
+            <label><input type="radio" name="problem3" value="c"> Suppe ist immer kalt.</label>
+        </div>
+        <button onclick="checkAnswer('problem3', 'b', 'feedbackProblem3')">Preveri odgovor</button>
+        <p id="feedbackProblem3" class="feedback"></p>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(groupName, correctAnswer, feedbackId) {
+            const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+            const feedback = document.getElementById(feedbackId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+    <!-- Section 12: Zaključevanje storitve -->
+    <div class="section">
+        <h2>12. Zaključevanje storitve: Sestavite pravilne stavke iz spodnjih besed</h2>
+        <div class="question">
+            Sestavite pravilni stavek: "Rechnung / ich / bringe / die / Ihnen / sofort."  
+            (Prinesem vam račun takoj.)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="closing1" value="a"> Ich bringe Ihnen die Rechnung sofort.</label>
+            <label><input type="radio" name="closing1" value="b"> Die Rechnung ich Ihnen bringe sofort.</label>
+            <label><input type="radio" name="closing1" value="c"> Ihnen bringe ich die sofort Rechnung.</label>
+        </div>
+        <button onclick="checkAnswer('closing1', 'a', 'feedbackClosing1')">Preveri odgovor</button>
+        <p id="feedbackClosing1" class="feedback"></p>
+
+        <div class="question">
+            Sestavite pravilni stavek: "Ihnen / schönen / einen / noch / Tag / wünsche."  
+            (Želim vam še lep dan.)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="closing2" value="a"> Ich wünsche Ihnen noch einen schönen Tag.</label>
+            <label><input type="radio" name="closing2" value="b"> Ihnen einen Tag wünsche schönen noch ich.</label>
+            <label><input type="radio" name="closing2" value="c"> Noch einen schönen Tag wünsche ich Ihnen.</label>
+        </div>
+        <button onclick="checkAnswer('closing2', 'a', 'feedbackClosing2')">Preveri odgovor</button>
+        <p id="feedbackClosing2" class="feedback"></p>
+
+        <div class="question">
+            Sestavite pravilni stavek: "Ihnen / danke / Besuch / Ihren / für."  
+            (Hvala za vaš obisk.)
+        </div>
+        <div class="options">
+            <label><input type="radio" name="closing3" value="a"> Danke für Ihren Besuch.</label>
+            <label><input type="radio" name="closing3" value="b"> Ihren Besuch für danke ich.</label>
+            <label><input type="radio" name="closing3" value="c"> Besuch Ihren danke für ich.</label>
+        </div>
+        <button onclick="checkAnswer('closing3', 'a', 'feedbackClosing3')">Preveri odgovor</button>
+        <p id="feedbackClosing3" class="feedback"></p>
+    </div>
+
+    <!-- Section 13: Razširjen nemško-srbski slovar -->
+    <div class="section">
+        <h2>13. Razširjen nemško-srbski slovar za gostinstvo</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški izraz</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Kellnerin</td><td>Konobarica</td></tr>
+                <tr><td>Getränkekarte</td><td>Karta pića</td></tr>
+                <tr><td>Hauptspeise</td><td>Glavno jelo</td></tr>
+                <tr><td>Nachspeise</td><td>Dezert</td></tr>
+                <tr><td>Suppe</td><td>Supa</td></tr>
+                <tr><td>Vegetarisch</td><td>Vegetarijansko</td></tr>
+                <tr><td>Tisch für zwei Personen</td><td>Sto za dve osobe</td></tr>
+                <tr><td>Ich empfehle...</td><td>Preporučujem...</td></tr>
+                <tr><td>Kann ich Ihnen helfen?</td><td>Mogu li vam pomoći?</td></tr>
+                <tr><td>Entschuldigung</td><td>Izvinjavam se</td></tr>
+                <tr><td>Eine Minute, bitte</td><td>Jedan trenutak, molim</td></tr>
+                <tr><td>Alles in Ordnung?</td><td>Da li je sve u redu?</td></tr>
+                <tr><td>Serviette</td><td>Salveta</td></tr>
+                <tr><td>Bitte warten Sie einen Moment</td><td>Molim vas, sačekajte trenutak.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(groupName, correctAnswer, feedbackId) {
+            const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+            const feedback = document.getElementById(feedbackId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+    <!-- Section 14: Domača naloga -->
+    <div class="section">
+        <h2>14. Domača naloga: Prevedite te stavke iz srbščine v nemščino</h2>
+        <div class="question">
+            Kako prevedete stavek: "Hvala što ste došli. Vidimo se ponovo!"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="homework1" value="a"> Danke, dass Sie gekommen sind. Bis bald!</label>
+            <label><input type="radio" name="homework1" value="b"> Vielen Dank und gute Nacht!</label>
+            <label><input type="radio" name="homework1" value="c"> Möchten Sie noch etwas trinken?</label>
+        </div>
+        <button onclick="checkAnswer('homework1', 'a', 'feedbackHomework1')">Preveri odgovor</button>
+        <p id="feedbackHomework1" class="feedback"></p>
+
+        <div class="question">
+            Kako prevedete stavek: "Mogu li vam doneti još nešto?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="homework2" value="a"> Kann ich Ihnen noch etwas bringen?</label>
+            <label><input type="radio" name="homework2" value="b"> Möchten Sie unsere Spezialitäten probieren?</label>
+            <label><input type="radio" name="homework2" value="c"> Entschuldigung, der Tisch ist schmutzig.</label>
+        </div>
+        <button onclick="checkAnswer('homework2', 'a', 'feedbackHomework2')">Preveri odgovor</button>
+        <p id="feedbackHomework2" class="feedback"></p>
+
+        <div class="question">
+            Kako prevedete stavek: "Želite li da probate naše specijalitete?"
+        </div>
+        <div class="options">
+            <label><input type="radio" name="homework3" value="a"> Danke für Ihren Besuch!</label>
+            <label><input type="radio" name="homework3" value="b"> Möchten Sie unsere Spezialitäten probieren?</label>
+            <label><input type="radio" name="homework3" value="c"> Kann ich Ihnen noch etwas bringen?</label>
+        </div>
+        <button onclick="checkAnswer('homework3', 'b', 'feedbackHomework3')">Preveri odgovor</button>
+        <p id="feedbackHomework3" class="feedback"></p>
+    </div>
+
+    <!-- Section 15: Neformalni pogovori ob šanku -->
+    <div class="section">
+        <h2>15. Neformalni pogovori ob šanku</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški stavek</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Guten Abend! Es ist heute ziemlich ruhig hier.</td><td>Dobar veče! Danas je ovde prilično mirno.</td></tr>
+                <tr><td>Ja, manchmal ist es ruhig. Ich heiße Zorica, ich bin Ihre Kellnerin. Wie heißen Sie?</td><td>Da, ponekad je mirno. Zovem se Zorica, vaša sam konobarica. Kako se zovete?</td></tr>
+                <tr><td>Ich heiße Markus.</td><td>Zovem se Markus.</td></tr>
+                <tr><td>Schön, Sie kennenzulernen, Markus. Sind Sie aus der Nähe?</td><td>Drago mi je da smo se upoznali, Markuse. Da li ste odavde?</td></tr>
+                <tr><td>Nein, ich bin aus Deutschland, aber ich arbeite hier in Slowenien.</td><td>Ne, iz Nemačke sam, ali radim ovde u Sloveniji.</td></tr>
+                <tr><td>Oh, interessant. Ich komme aus Banja Luka, aber ich lebe seit fast sechs Jahren in Slowenien.</td><td>Oh, zanimljivo. Ja sam iz Banjaluke, ali živim u Sloveniji skoro šest godina.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tečaj nemščine za gostinstvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .question {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function checkAnswer(groupName, correctAnswer, feedbackId) {
+            const selected = document.querySelector(`input[name="${groupName}"]:checked`);
+            const feedback = document.getElementById(feedbackId);
+            if (selected) {
+                if (selected.value === correctAnswer) {
+                    feedback.textContent = "Pravilno! Odlično!";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.textContent = "Napačno. Poskusite znova.";
+                    feedback.style.color = "red";
+                }
+            } else {
+                feedback.textContent = "Izberite odgovor.";
+                feedback.style.color = "orange";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Tečaj nemščine za gostinstvo</h1>
+
+    <!-- Dialog 2: Družina -->
+    <div class="section">
+        <h2>Dialog 2: Družina</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški stavek</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Sie haben einen schönen Akzent. Woher kommen Sie?</td><td>Imate lep akcenat. Odakle ste?</td></tr>
+                <tr><td>Danke! Ich komme aus Banja Luka in Bosnien. Und Sie?</td><td>Hvala! Dolazim iz Banjaluke u Bosni. A vi?</td></tr>
+                <tr><td>Ich komme aus Graz, in Österreich.</td><td>Iz Graca sam, u Austriji.</td></tr>
+                <tr><td>Ach, Graz ist eine schöne Stadt. Ich habe dort einmal eine Freundin besucht.</td><td>Ah, Grac je lep grad. Jednom sam tamo posetila prijateljicu.</td></tr>
+                <tr><td>Haben Sie Kinder?</td><td>Imate li decu?</td></tr>
+                <tr><td>Ja, ich habe zwei Töchter, Tanja und Sanja. Meine ältere Tochter hat drei Jungen. Ich bin schon dreimal Oma!</td><td>Da, imam dve ćerke, Tanju in Sanju. Moja starija ćerka ima tri sina. Već sam tri puta baka!</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Dialog 3: Avtomobili -->
+    <div class="section">
+        <h2>Dialog 3: Avtomobili</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški stavek</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Welches Auto fahren Sie?</td><td>Koji automobil vozite?</td></tr>
+                <tr><td>Ich fahre einen Volkswagen Golf Kombi. Ich bin sehr zufrieden damit. Und Sie?</td><td>Vozim Volkswagen Golf karavan. Veoma sam zadovoljna njime. A vi?</td></tr>
+                <tr><td>Ich habe einen Audi.</td><td>Imam Audi.</td></tr>
+                <tr><td>Oh, das ist ein schönes Auto!</td><td>Oh, to je lep auto!</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Kviz: Vadba dialogov -->
+    <div class="section">
+        <h2>Kviz: Vadba dialogov</h2>
+
+        <!-- Naloga 1 -->
+        <div class="question">
+            Gost vpraša: "Woher kommen Sie?"  
+            Zorica odgovori:
+        </div>
+        <div class="options">
+            <label><input type="radio" name="quiz1" value="a"> Ich heiße Zorica.</label>
+            <label><input type="radio" name="quiz1" value="b"> Ich komme aus Banja Luka.</label>
+            <label><input type="radio" name="quiz1" value="c"> Ich habe zwei Töchter.</label>
+        </div>
+        <button onclick="checkAnswer('quiz1', 'b', 'feedbackQuiz1')">Preveri odgovor</button>
+        <p id="feedbackQuiz1" class="feedback"></p>
+
+        <!-- Naloga 2 -->
+        <h3>Naloga 2: Povežite stavke</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nemški stavek</th>
+                    <th>Srbski prevod</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1. Ich heiße Zorica.</td><td>a) Imam dve ćerke.</td></tr>
+                <tr><td>2. Ich habe zwei Töchter.</td><td>b) Dolazim iz Banjaluke.</td></tr>
+                <tr><td>3. Ich komme aus Banja Luka.</td><td>c) Zovem se Zorica.</td></tr>
+            </tbody>
+        </table>
+        <p>Rešitve: 1 → c, 2 → a, 3 → b</p>
+
+        <!-- Naloga 3 -->
+        <h3>Naloga 3: Prevedite v nemščino</h3>
+        <div class="question">
+            Kako bi Zorica vprašala:  
+            1. "Kako se zovete?"  
+            2. "Da li imate porodicu?"
+        </div>
+        <div class="options">
+            <p>Rešitve:</p>
+            <ul>
+                <li>1. Wie heißen Sie?</li>
+                <li>2. Haben Sie eine Familie?</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
